@@ -33,7 +33,7 @@ const DesignSystemPage = () => {
         align="left"
       />
 
-      <div className="grid gap-8 mt-6 md:grid-cols-2 xl:grid-cols-3">
+      <div className="md:grid gap-8 mt-6 md:grid-cols-2 xl:grid-cols-3">
         {/* 버튼 */}
         <Card>
           <div className="mb-3">
