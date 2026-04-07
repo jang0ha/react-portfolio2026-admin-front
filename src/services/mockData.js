@@ -1,0 +1,55 @@
+// Mock 초기 프로젝트 데이터
+export const MOCK_PROJECTS = [
+  {
+    id: 1,
+    title: "호텔 예약 플랫폼",
+    description: "YouTube 클론코딩으로 배운 React를 활용한 호텔 예약 시스템",
+    category: "personal",
+    image: "https://via.placeholder.com/300x200?text=Hotel+Booking",
+    link: "https://react-hotel-booking-wheat.vercel.app",
+    github: "https://github.com/...",
+    tags: ["React", "CSS"],
+    startDate: "2024-12-01",
+    endDate: "2024-12-15",
+    status: "completed",
+    featured: true,
+    createdAt: "2024-12-20T10:00:00Z",
+  },
+  {
+    id: 2,
+    title: "보험 AI 추천 플랫폼",
+    description: "OpenAI API를 활용하여 사용자의 상황에 맞는 보험을 추천",
+    category: "personal",
+    image: "https://via.placeholder.com/300x200?text=Insurance+AI",
+    link: "https://insurance-ai.vercel.app",
+    github: "https://github.com/...",
+    tags: ["JavaScript", "OpenAI", "CSS"],
+    startDate: "2025-01-15",
+    endDate: "2025-01-18",
+    status: "ongoing",
+    featured: false,
+    createdAt: "2025-01-18T10:00:00Z",
+  },
+  {
+    id: 3,
+    title: "날씨 앱",
+    description: "OpenAI API와 날씨 API를 활용한 지능형 날씨 앱",
+    category: "personal",
+    image: "https://via.placeholder.com/300x200?text=Weather+App",
+    link: "https://example.com",
+    github: "https://github.com/...",
+    tags: ["React", "OpenAI", "API"],
+    startDate: "2024-11-01",
+    endDate: "2024-11-10",
+    status: "completed",
+    featured: false,
+    createdAt: "2024-11-10T10:00:00Z",
+  },
+];
+
+// Mock 관리자 계정
+export const MOCK_ADMIN = {
+  id: 1,
+  email: "admin@example.com",
+  password: "password",
+};
