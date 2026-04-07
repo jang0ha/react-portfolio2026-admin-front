@@ -48,10 +48,11 @@ export const StyledInput = styled.input`
   }
 
   &:disabled {
-    background-color: #f3f4f6;
+    padding: 0;
+    background-color: transparent;
+    box-shadow: none;
     color: #9ca3af;
-    cursor: not-allowed;
-    border-color: #e5e7eb;
+    border: 0;
   }
 `;
 
@@ -80,7 +81,6 @@ export const RadioLabel = styled.label`
 
   input[type="radio"]:disabled {
     cursor: not-allowed;
-    opacity: 0.6;
   }
 
   input[type="radio"]:disabled + span {
@@ -107,7 +107,6 @@ export const CheckboxLabel = styled.label`
 
   input[type="checkbox"]:disabled {
     cursor: not-allowed;
-    opacity: 0.6;
   }
 
   input[type="checkbox"]:disabled + span {
@@ -183,6 +182,7 @@ const Input = ({
         required={required}
         disabled={disabled}
         className={className}
+        focused={focused}
       />
     );
   }
@@ -199,6 +199,7 @@ const Input = ({
       required={required}
       disabled={disabled}
       className={className}
+      focused={focused}
     />
   );
 };

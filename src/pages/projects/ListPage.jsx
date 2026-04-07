@@ -153,7 +153,6 @@ const ListProjectsPage = () => {
             "description",
             "tags",
             "startDate",
-            "endDate",
             "status",
             "actions",
           ]}

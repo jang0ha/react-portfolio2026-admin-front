@@ -6,7 +6,7 @@ import Tag from "./Base/Tag";
 
 const StyledTable = styled.table`
   width: 100%;
-  min-width: 1200px;
+  min-width: 1400px;
   border-collapse: collapse;
   font-size: 0.8rem;
 
@@ -55,16 +55,16 @@ const Table = ({
 
   // 컬럼 설정
   const columnConfig = {
-    image: { label: "이미지", width: "5%", textAlign: "center" },
-    category: { label: "카테고리", width: "max-content" },
+    image: { label: "이미지", width: "100px", textAlign: "center" },
+    category: { label: "카테고리", width: "100px" },
     title: { label: "제목", width: "15%" },
     description: { label: "설명", width: "30%" },
     tags: { label: "태그" },
     featured: { label: "게시여부" },
-    startDate: { label: "시작일" },
-    endDate: { label: "종료일" },
-    status: { label: "상태", width: "fit-content" },
-    actions: { label: "관리", width: "auto", textAlign: "center" },
+    startDate: { label: "시작일", width: "110px" },
+    endDate: { label: "종료일", width: "110px" },
+    status: { label: "상태", width: "100px" },
+    actions: { label: "관리", width: "140px", textAlign: "center" },
   };
 
   // ============================================================================

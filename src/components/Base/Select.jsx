@@ -17,10 +17,12 @@ export const StyledSelect = styled.select`
   }
 
   &:disabled {
-    background-color: #f3f4f6;
+    padding-left: 0;
+    padding-right: 0;
+    background-color: transparent;
+    box-shadow: none;
     color: #9ca3af;
-    cursor: not-allowed;
-    border-color: #e5e7eb;
+    border: 0;
   }
 `;
 

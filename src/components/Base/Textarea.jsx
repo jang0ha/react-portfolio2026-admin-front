@@ -22,10 +22,13 @@ const StyledTextArea = styled.textarea`
   }
 
   &:disabled {
-    background-color: #f3f4f6;
+    padding: 0;
+    background-color: transparent;
+    box-shadow: none;
     color: #9ca3af;
-    cursor: not-allowed;
-    border-color: #e5e7eb;
+    resize: none;
+    hegiht: auto;
+    border: 0;
   }
 `;
 const Textarea = ({
