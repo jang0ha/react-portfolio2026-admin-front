@@ -107,7 +107,7 @@ const ListProjectsPage = () => {
             상태 / 필터 / 검색어 값에 따라 필터링 가능합니다.
             <br /> <br />
             3개 이상 프로젝트를 등록후 페이지네이션을 확인해주세요. <br />
-            (5개당 페이지네이션)
+            (5프로젝트당 / 1p)
           </Popover>
         </div>
       </div>
@@ -144,7 +144,7 @@ const ListProjectsPage = () => {
       {/* ============================================================================
           테이블
           ============================================================================ */}
-      <div className="overflow-auto w-full">
+      <div className="overflow-auto w-full border-y">
         <Table
           projects={paginatedProjects}
           columns={[
@@ -152,6 +152,8 @@ const ListProjectsPage = () => {
             "title",
             "description",
             "tags",
+            "startDate",
+            "endDate",
             "status",
             "actions",
           ]}

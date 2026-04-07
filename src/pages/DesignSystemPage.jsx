@@ -29,11 +29,11 @@ const DesignSystemPage = () => {
     <>
       <Title
         title="디자인 시스템"
-        subTitle="사용되어진 컴포넌트에 대한 가이트 페이지입니다."
+        subTitle="사용되어진 컴포넌트에 대한 가이드 페이지입니다."
         align="left"
       />
 
-      <div className="md:grid gap-8 mt-6 md:grid-cols-2 xl:grid-cols-3">
+      <div className="max-md:flex max-md:flex-col md:grid gap-8 mt-6 md:grid-cols-2 xl:grid-cols-3">
         {/* 버튼 */}
         <Card>
           <div className="mb-3">
@@ -168,7 +168,7 @@ const DesignSystemPage = () => {
             <SubTitle title="Pagination & Table" align="left" />
           </div>
           <div className="border-t pt-3">
-            <div className="overflow-auto w-full max-h-[400px]">
+            <div className="overflow-auto w-full max-h-[400px] border-y">
               <Table
                 projects={MOCK_PROJECTS}
                 columns={["title", "description"]}
@@ -191,8 +191,8 @@ const DesignSystemPage = () => {
               <Badge variant="default">기본</Badge>
               <Badge variant="proceed">진행중</Badge>
               <Badge variant="success">완료</Badge>
-              <Badge variant="warning">주의</Badge>
-              <Badge variant="danger">위험</Badge>
+              <Badge variant="warning">오류</Badge>
+              <Badge variant="danger">취소</Badge>
             </li>
             <li>
               <Tag>Tag</Tag>

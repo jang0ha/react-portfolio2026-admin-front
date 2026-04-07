@@ -62,8 +62,8 @@ const StyledPopoverContent = styled.div`
     return "left: 50%; transform: translateX(-50%);";
   }}
 
-  visibility: ${(props) => (props.isOpen ? "visible" : "hidden")};
-  opacity: ${(props) => (props.isOpen ? "1" : "0")};
+  visibility: ${(props) => (props.$isOpen ? "visible" : "hidden")};
+  opacity: ${(props) => (props.$isOpen ? "1" : "0")};
   transition: all 0.2s;
 `;
 
@@ -104,7 +104,7 @@ export const Popover = ({
       <StyledPopoverButton onClick={() => setIsOpen(!isOpen)}>
         ?
       </StyledPopoverButton>
-      <StyledPopoverContent isOpen={isOpen} position={position} align={align}>
+      <StyledPopoverContent $isOpen={isOpen} position={position} align={align}>
         {children}
       </StyledPopoverContent>
     </PopoverWrapper>

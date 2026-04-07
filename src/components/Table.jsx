@@ -9,6 +9,7 @@ const StyledTable = styled.table`
   min-width: 1200px;
   border-collapse: collapse;
   font-size: 0.8rem;
+
   th {
     background-color: var(--muted);
   }
@@ -23,12 +24,18 @@ const StyledTable = styled.table`
     th {
       position: sticky;
       top: 0;
+      border-top: 0;
     }
   }
   tbody {
     tr {
       &:hover {
         background: var(--Accent);
+      }
+      &:last-child {
+        td {
+          border-bottom: 0;
+        }
       }
     }
   }
@@ -48,8 +55,8 @@ const Table = ({
 
   // 컬럼 설정
   const columnConfig = {
-    image: { label: "이미지", width: "10%" },
-    category: { label: "카테고리" },
+    image: { label: "이미지", width: "5%", textAlign: "center" },
+    category: { label: "카테고리", width: "max-content" },
     title: { label: "제목", width: "15%" },
     description: { label: "설명", width: "30%" },
     tags: { label: "태그" },
@@ -57,7 +64,7 @@ const Table = ({
     startDate: { label: "시작일" },
     endDate: { label: "종료일" },
     status: { label: "상태", width: "fit-content" },
-    actions: { label: "관리", width: "fit-content" },
+    actions: { label: "관리", width: "auto", textAlign: "center" },
   };
 
   // ============================================================================
@@ -153,7 +160,13 @@ const Table = ({
     <StyledTable className="w-full border-0">
       <colgroup>
         {columns.map((col) => (
-          <col key={col} style={{ width: columnConfig[col]?.width }} />
+          <col
+            key={col}
+            style={{
+              width: columnConfig[col]?.width,
+              textAlign: columnConfig[col]?.textAlign,
+            }}
+          />
         ))}
       </colgroup>
       <thead>
@@ -167,7 +180,14 @@ const Table = ({
         {projects.map((project) => (
           <tr key={project.id}>
             {columns.map((col) => (
-              <td key={`${project.id}-${col}`}>{renderCell(project, col)}</td>
+              <td
+                key={`${project.id}-${col}`}
+                style={{
+                  textAlign: columnConfig[col]?.textAlign,
+                }}
+              >
+                {renderCell(project, col)}
+              </td>
             ))}
           </tr>
         ))}
