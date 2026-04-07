@@ -7,6 +7,7 @@ import Title from "../../components/Base/Title";
 import Button from "../../components/Base/Button";
 import Select from "../../components/Base/Select";
 import Input from "../../components/Base/Input";
+import { Popover } from "../../components/Base/Popover";
 import Pagination from "../../components/Base/Pagination";
 import { useProjectManagement } from "../../hooks/useProjectManagement";
 import { loadProjectsWithImages } from "../../utils/projectUtils";
@@ -95,11 +96,21 @@ const ListProjectsPage = () => {
       </Modal>
 
       {/* 페이지 제목 */}
-      <Title
-        title="프로젝트 리스트"
-        align="left"
-        subTitle="전체 프로젝트 목록입니다."
-      ></Title>
+      <div className="relative">
+        <Title
+          title="프로젝트 리스트"
+          align="left"
+          subTitle="전체 프로젝트 목록입니다."
+        ></Title>
+        <div className="absolute bottom-2 right-0">
+          <Popover align="right" position="bottom">
+            상태 / 필터 / 검색어 값에 따라 필터링 가능합니다.
+            <br /> <br />
+            3개 이상 프로젝트를 등록후 페이지네이션을 확인해주세요. <br />
+            (5개당 페이지네이션)
+          </Popover>
+        </div>
+      </div>
 
       {/* ============================================================================
           검색/필터 & 추가 버튼
@@ -133,20 +144,22 @@ const ListProjectsPage = () => {
       {/* ============================================================================
           테이블
           ============================================================================ */}
-      <Table
-        projects={paginatedProjects}
-        columns={[
-          "category",
-          "title",
-          "description",
-          "tags",
-          "status",
-          "actions",
-        ]}
-        onOpenDetail={handleOpenDetail}
-        onEdit={handleEdit}
-        onDelete={handleDelete}
-      />
+      <div className="overflow-auto w-full">
+        <Table
+          projects={paginatedProjects}
+          columns={[
+            "category",
+            "title",
+            "description",
+            "tags",
+            "status",
+            "actions",
+          ]}
+          onOpenDetail={handleOpenDetail}
+          onEdit={handleEdit}
+          onDelete={handleDelete}
+        />
+      </div>
 
       {/* ============================================================================
           페이지네이션

@@ -199,7 +199,6 @@ const Input = ({
       required={required}
       disabled={disabled}
       className={className}
-      focused={focused}
     />
   );
 };

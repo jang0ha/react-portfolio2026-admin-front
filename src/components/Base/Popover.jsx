@@ -41,13 +41,14 @@ const StyledPopoverContent = styled.div`
   border-radius: 8px;
   padding: 12px;
   min-width: 180px;
-  max-width: 300px;
+  max-width: 400px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   z-index: 1000;
   font-size: 14px;
   line-height: 1.5;
   color: #374151;
   word-break: keep-all;
+  text-align: center;
 
   ${(props) => {
     if (props.position === "top") return "bottom: calc(100% + 8px);";

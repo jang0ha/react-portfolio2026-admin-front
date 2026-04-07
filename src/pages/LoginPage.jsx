@@ -6,6 +6,7 @@ import { authStorage } from "../services/storage";
 import styled, { css } from "styled-components";
 import Title from "../components/Base/Title";
 import { MOCK_ADMIN } from "../services/mockData";
+import { Popover } from "../components/Base/Popover";
 const ErrorBox = styled.div`
   background-color: #fee;
   color: #c33;
@@ -18,8 +19,8 @@ const ErrorBox = styled.div`
 
 const LoginPage = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("admin@example.com");
-  const [password, setPassword] = useState("password");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -41,13 +42,13 @@ const LoginPage = () => {
     }
   };
   return (
-    <main className="flex flex-col justify-center items-center py-10 h-screen">
+    <main className="flex flex-col justify-center  items-center py-10 h-screen">
       {error && <ErrorBox>{error}</ErrorBox>}
       <Title title="로그인" subTitle="포트폴리오 어드민 페이지입니다."></Title>
 
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col gap-5 mt-10 border-y py-5 w-full max-w-sm"
+        className="flex flex-col gap-5 mt-10 border-t pt-5 py-8 w-full max-w-sm"
       >
         <FormField
           label="이메일"
@@ -70,25 +71,18 @@ const LoginPage = () => {
         <Button type="submit" className="w-full">
           {loading ? "로그인 중..." : "로그인"}
         </Button>
-        <div className="relative mt-5">
-          <div className="absolute inset-0 flex items-center">
-            <span className="w-full border-t"></span>
-          </div>
-          <div className="relative flex justify-center text-xs uppercase ">
-            <span className="bg-card text-muted-foreground px-2">
-              모의 로그인 정보
-            </span>
-          </div>
-        </div>
-        <div className="text-center text-muted-foreground text-xs">
-          <p>
-            이메일: <span>admin@example.com</span>
-          </p>
-          <p>
-            비밀번호: <span>password</span>
-          </p>
-        </div>
       </form>
+      <Popover>
+        <div className="border-b pb-2">로그인 정보</div>
+        <div className="pt-2">
+          <p>
+            <span>admin@example.com</span>
+          </p>
+          <p>
+            <span>password</span>
+          </p>
+        </div>
+      </Popover>
     </main>
   );
 };

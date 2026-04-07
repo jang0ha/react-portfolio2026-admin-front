@@ -82,6 +82,7 @@ const DesignSystemPage = () => {
               <Input placeholder="Input default" />
               <Input placeholder="Input focused" focused={true} />
               <Input placeholder="Input disabled" disabled />
+              <Input type="file" placeholder="Input disabled" />
             </li>
             <li className="mb-4 flex w-full">
               <Textarea placeholder="Textarea" />
@@ -167,10 +168,12 @@ const DesignSystemPage = () => {
             <SubTitle title="Pagination & Table" align="left" />
           </div>
           <div className="border-t pt-3">
-            <Table
-              projects={MOCK_PROJECTS}
-              columns={["title", "description"]}
-            />
+            <div className="overflow-auto w-full max-h-[400px]">
+              <Table
+                projects={MOCK_PROJECTS}
+                columns={["title", "description"]}
+              />
+            </div>
             <Pagination
               totalPages={3}
               currentPage={2}
@@ -185,11 +188,11 @@ const DesignSystemPage = () => {
           </div>
           <ul className="border-t pt-3">
             <li className="mb-4 inline-flex gap-3 flex-wrap">
-              <Badge variant="default">status default</Badge>
-              <Badge variant="proceed">status proceed</Badge>
-              <Badge variant="success">status success</Badge>
-              <Badge variant="warning">status warning</Badge>
-              <Badge variant="danger">status danger</Badge>
+              <Badge variant="default">기본</Badge>
+              <Badge variant="proceed">진행중</Badge>
+              <Badge variant="success">완료</Badge>
+              <Badge variant="warning">주의</Badge>
+              <Badge variant="danger">위험</Badge>
             </li>
             <li>
               <Tag>Tag</Tag>
@@ -204,8 +207,31 @@ const DesignSystemPage = () => {
           <div className="flex items-center gap-2 mb-3">
             <SubTitle title="Popover & Modal" align="left" />
           </div>
-          <div className="mb-4">
-            <Popover>팝오버 컴포넌트입니다.</Popover>
+          <div className="flex gap-2 mb-4">
+            <div>
+              왼쪽: &ensp;
+              <Popover align="left">
+                팝오버 <strong>왼쪽</strong> 방향 컴포넌트입니다.
+              </Popover>
+            </div>
+            <div>
+              오른쪽: &ensp;
+              <Popover align="right">
+                팝오버 <strong>오른쪽</strong> 방향 컴포넌트입니다.
+              </Popover>
+            </div>
+            <div>
+              위: &ensp;
+              <Popover position="top">
+                팝오버 <strong>위</strong> 방향 컴포넌트입니다.
+              </Popover>
+            </div>
+            <div>
+              아래 : &ensp;
+              <Popover position="bottom">
+                팝오버 <strong>아래</strong> 방향 컴포넌트입니다.
+              </Popover>
+            </div>
           </div>
           <div className="mb-4 border-t pt-4">
             <div className="mb-3 text-sm font-bold">모달 크기</div>

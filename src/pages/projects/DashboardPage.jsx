@@ -3,12 +3,14 @@ import ProjectForm from "../../components/Form";
 import { projectStorage } from "../../services/storage";
 import { authStorage } from "../../services/storage";
 import { projectApi } from "../../services/api";
+import { assets } from "../../assets/asset";
 import Badge from "../../components/Base/Badge";
 import Title from "../../components/Base/Title";
 import SubTitle from "../../components/Base/SubTitle";
 import { useEffect, useState } from "react";
 import Table from "../../components/Table";
 import Modal from "../../components/Base/Modal";
+import { Popover } from "../../components/Base/Popover";
 import { useProjectManagement } from "../../hooks/useProjectManagement";
 const DashboardPage = () => {
   const [projects, setProjects] = useState([]);
@@ -134,11 +136,14 @@ const DashboardPage = () => {
       )}
 
       {/* 프로젝트 요약 */}
-      <ul className="flex gap-3 mt-4 mb-8">
+      <ul className="flex lg:flex-row flex-col gap-3 mt-4 mb-8">
         <li
-          className="flex flex-col gap-1 rounded-xl border  py-6 text-card-foreground  w-1/3 p-4 shadow-md"
+          className="inline-flex flex-col gap-1 rounded-xl border  p-6 text-card-foreground  lg:w-1/3"
           data-slot="card"
         >
+          <div className="mb-4 flex size-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+            <img src={assets.projectIcon} alt="project icon" />
+          </div>
           <div className="text-gray-500">총 프로젝트 개수</div>
           <div className="text-4xl font-bold my-3 mb-5">{projects.length}</div>
           <div className="flex gap-4">
@@ -153,9 +158,12 @@ const DashboardPage = () => {
           </div>
         </li>
         <li
-          className="lex flex-col gap-1 rounded-xl border  py-6 text-card-foreground  w-1/3 p-4 shadow-md"
+          className="inline-flex flex-col gap-1 rounded-xl border  p-6 text-card-foreground  lg:w-1/3"
           data-slot="card"
         >
+          <div className="mb-4 flex size-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+            <img src={assets.listIcon} alt="list icon" />
+          </div>
           <div className="text-gray-500">게시된 프로젝트</div>
           <div className="text-4xl font-bold my-3 mb-5">
             {projects.filter((p) => p.featured).length}
@@ -178,9 +186,12 @@ const DashboardPage = () => {
           </div>
         </li>
         <li
-          className="flex flex-col gap-1 rounded-xl border  py-6 text-card-foreground  w-1/3 p-4 shadow-md"
+          className="inline-flex flex-col gap-1 rounded-xl border  p-6 text-card-foreground  lg:w-1/3"
           data-slot="card"
         >
+          <div className="mb-4 flex size-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+            <img src={assets.completeIcon} alt="completed icon" />
+          </div>
           <div className="text-gray-500">완료된 프로젝트</div>
           <div className="text-4xl font-bold my-3 mb-5">
             {projects.filter((p) => p.status === "completed").length}
@@ -207,27 +218,38 @@ const DashboardPage = () => {
       </ul>
 
       {/* 최근 프로젝트 */}
-      <section className="min-w-[64rem] overflow-auto">
-        <SubTitle
-          title="최근 프로젝트"
-          align="left"
-          desc="최근에 추가된 5개의 프로젝트 목록입니다."
-        />
-        <Table
-          projects={projects.slice(0, 5)} // 최근 5개만 보여줌
-          columns={[
-            "category",
-            "title",
-            "description",
-            "tags",
-            "status",
-            "featured",
-            "actions",
-          ]}
-          onOpenDetail={handleOpenDetail}
-          onEdit={handleEdit}
-          onDelete={handleDelete}
-        />
+      <section className="">
+        <div className="relative">
+          <SubTitle
+            title="최근 프로젝트"
+            align="left"
+            desc="최근에 추가된 5개의 프로젝트 목록입니다."
+          />
+          <div className="absolute bottom-2 right-0">
+            <Popover align="right" position="bottom">
+              수정/삭제를 통해서 변경된 값이 실시간으로 반영됩니다.
+              <br /> <br />
+              제목을 클릭하면 상세정보를 볼수 있습니다.
+            </Popover>
+          </div>
+        </div>
+        <div className="overflow-auto w-full max-h-[400px] border-y">
+          <Table
+            projects={projects.slice(0, 5)} // 최근 5개만 보여줌
+            columns={[
+              "category",
+              "title",
+              "description",
+              "tags",
+              "status",
+              "featured",
+              "actions",
+            ]}
+            onOpenDetail={handleOpenDetail}
+            onEdit={handleEdit}
+            onDelete={handleDelete}
+          />
+        </div>
       </section>
     </>
   );

@@ -9,7 +9,7 @@ const Layout = () => {
       <Header />
       <main className="flex">
         <Sidebar className="flex-shrink-0" />
-        <section className="flex-1 overflow-auto p-4 pt-10 md:px-10 border-l">
+        <section className="flex-1 overflow-hidden p-4 pt-10 md:px-10 border-l">
           <Outlet />
         </section>
       </main>

@@ -6,6 +6,7 @@ import Tag from "./Base/Tag";
 
 const StyledTable = styled.table`
   width: 100%;
+  min-width: 1200px;
   border-collapse: collapse;
   font-size: 0.8rem;
   th {
@@ -17,6 +18,12 @@ const StyledTable = styled.table`
     padding: 0.5rem 1rem;
     text-align: left;
     word-break: break-all;
+  }
+  thead {
+    th {
+      position: sticky;
+      top: 0;
+    }
   }
   tbody {
     tr {
@@ -117,7 +124,7 @@ const Table = ({
         return project.status === "completed" ? (
           <Badge variant="success">완료</Badge>
         ) : (
-          <Badge variant="default">진행중</Badge>
+          <Badge variant="proceed">진행중</Badge>
         );
 
       case "actions":
